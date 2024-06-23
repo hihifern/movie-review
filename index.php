@@ -28,20 +28,39 @@ if (!$result) {
         </div>
         <div class="navbar">
             <ul class="menu">
-                <li><a href="#">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="#">Reviews</a></li>
                 <li><a href="#">Top Movies</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
         <div class="user">
-            <a href=""><img src="img/aa/icons8-search-50.png" alt=""></a>
-            <a href=""><img src="img/aa/image copy.png" alt=""></a>
-            <a href=""><img src="img/aa/icons8-user-30.png" alt=""></a>
+            <a href="register.php"><img src="img/aa/icons8-user-30.png" alt=""> Login/Sign up</a>
         </div>
     </nav>
 
+
+    <div class="banner">
+
+        <div class="banner-text">
+            <h2>HAIKYU!! The Dumpster Battle</h2>
+            <p>Animation, Comedy, Drama</p>
+            <p>lorem100
+
+            </p>
+            <a href="#">GET TICKET</a>
+          
+                <a href="#">View Det</a>
+           
+
+        </div>
+    </div>
+
+
     <div class="container">
+
+
+
         <?php
         // ตรวจสอบว่ามีข้อมูลหรือไม่
         if ($result->num_rows > 0) {
@@ -58,7 +77,7 @@ if (!$result) {
                     $synopsis = $p->synopsis;
 
                     echo "<div class='movie-list'>";
-                
+
 
                     echo "<div class='movie-name'>";
                     echo "<img src='$src' alt='$n'>";
@@ -66,20 +85,40 @@ if (!$result) {
 
                     echo "<div class='movie-info'>";
                     echo "<h3>$n</h3>";
+                    echo "<div class='btt'>";
+                    echo "<a href='index.html'>View Details</a>";
 
+                    echo "</div>";
                     echo "</div>";
 
 
 
                     echo "</div>";
                 } else {
-                    echo "<p>Movie name not found for movie ID: $p->id</p>";
+                    echo "<p>Movie name not found: $p->id</p>";
                 }
             }
         } else {
             echo "<p>No movies found in the database.</p>";
         }
         ?>
+    </div>
+
+    <div class="overlay" id="divOne">
+        <div class="wrapper">
+            <h2>Register</h2>
+            <a href="#" class="close">&times;</a>
+            <div class="content">
+                <form>
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name">
+                    <label>Last Name</label>
+                    <input type="text" placeholder="First Name">
+                    <label>First Name</label>
+                    <input type="text" placeholder="First Name">
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 

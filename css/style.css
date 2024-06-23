@@ -3,8 +3,6 @@
     padding: 0;
     margin: 0;
     font-family: karla;
-    background-color: #333;
-    color: #fff;
 }
 
 nav {
@@ -12,12 +10,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
-    background-color: rgb(0, 0, 0);
-    color: #fff;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
 }
 
-.logo h1{
-    background-color: black;
+
+.logo h1 {
+    background-color: #fff;
 }
 
 
@@ -25,7 +25,6 @@ nav {
     display: flex;
     align-items: center;
     list-style: none;
-    background-color: black;
 }
 
 .menu li {
@@ -33,27 +32,57 @@ nav {
 }
 
 .menu a {
-    color: #fff;   
-    background-color: black;
+    color: #989292;
     text-decoration: none;
 }
 
-.user img{
-    width: 40px;
-    padding: 2px;
+.user img {
+    width: 30px;
+    
+}
+.user a {
+    text-decoration: none;
+    margin-top: 10rem;
+}
+
+.banner {  background-image: url(banner/GBTBDVaXUAAxjPi-e1702546313905.jpeg);
+   background-position:center;
+   
+    opacity: 0.5;
+
+}
+
+.banner-text {
+    font-size: larger;
+    color: #fff;
+    padding: 30rem 0 10rem 10rem;
+ 
 }
 
 .container {
     max-width: 1200px;
     overflow: hidden;
-    margin: 5rem auto;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
-   grid-template-columns: repeat(3,1fr);
-   column-gap: 2rem;
-   justify-items: center;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+    justify-items: center;
+   
 }
 
-.movie-info{
+.movie-list {
    
+    justify-items: center;
+background-color: #fff;
+    box-shadow: 0 1px 5px -1px rgba(0, 0, 0, .1);
+    padding: 2rem;
+}
+
+.movie-name img{
+    width: 200px;
+    height: 300px;
+}
+.movie-info {
     padding: 2rem 0;
 }
