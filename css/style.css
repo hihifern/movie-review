@@ -5,8 +5,19 @@
     font-family: karla;
 }
 
+body::-webkit-scrollbar{
+    display: none;
+}
+
 nav {
-    display: flex;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar{
+ display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
@@ -38,16 +49,17 @@ nav {
 
 .user img {
     width: 30px;
-    
+
 }
+
 .user a {
     text-decoration: none;
     margin-top: 10rem;
 }
 
-.banner {  background-image: url(banner/GBTBDVaXUAAxjPi-e1702546313905.jpeg);
-   background-position:center;
-   
+.banner {
+    background-image: url(Untitled_Artwork.jpg);
+    background-position: center;
     opacity: 0.5;
 
 }
@@ -56,7 +68,7 @@ nav {
     font-size: larger;
     color: #fff;
     padding: 30rem 0 10rem 10rem;
- 
+
 }
 
 .container {
@@ -68,21 +80,22 @@ nav {
     grid-template-columns: repeat(4, 1fr);
     column-gap: 2rem;
     justify-items: center;
-   
+
 }
 
 .movie-list {
-   
+
     justify-items: center;
-background-color: #fff;
+    background-color: #fff;
     box-shadow: 0 1px 5px -1px rgba(0, 0, 0, .1);
     padding: 2rem;
 }
 
-.movie-name img{
+.movie-name img {
     width: 200px;
     height: 300px;
 }
+
 .movie-info {
     padding: 2rem 0;
 }

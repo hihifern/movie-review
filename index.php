@@ -18,25 +18,28 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Reviews</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- รวมไฟล์ CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <nav>
-        <div class="logo">
-            <h1>Movie</h1>
-        </div>
         <div class="navbar">
+            <div class="logo">
+                <h1>Movie</h1>
+            </div>
+
             <ul class="menu">
                 <li><a href="index.php">Home</a></li>
-                <li><a href="#">Reviews</a></li>
+                <li><a href="reviews.php">Reviews</a></li>
                 <li><a href="#">Top Movies</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
-        </div>
-        <div class="user">
+
+             <div class="user">
             <a href="register.php"><img src="img/aa/icons8-user-30.png" alt=""> Login/Sign up</a>
         </div>
+        </div>
+       
     </nav>
 
 
@@ -49,9 +52,9 @@ if (!$result) {
 
             </p>
             <a href="#">GET TICKET</a>
-          
-                <a href="#">View Det</a>
-           
+
+            <a href="#">View Det</a>
+
 
         </div>
     </div>
@@ -62,11 +65,11 @@ if (!$result) {
 
 
         <?php
-        // ตรวจสอบว่ามีข้อมูลหรือไม่
+        //ตรวจสอบว่ามีข้อมูลหรือไม่
         if ($result->num_rows > 0) {
-            // วนลูปเพื่อแสดงผลข้อมูลภาพยนตร์
+            //วนลูปเพื่อแสดงผลข้อมูล
             while ($p = $result->fetch_object()) {
-                // ตรวจสอบว่าคุณสมบัติ movie มีอยู่หรือไม่
+                // ตรวจสอบคุณสมบัติ
                 if (isset($p->movie_name)) {
 
                     $n = $p->movie_name;
@@ -110,12 +113,12 @@ if (!$result) {
             <a href="#" class="close">&times;</a>
             <div class="content">
                 <form>
-                    <label>First Name</label>
-                    <input type="text" placeholder="First Name">
-                    <label>Last Name</label>
-                    <input type="text" placeholder="First Name">
-                    <label>First Name</label>
-                    <input type="text" placeholder="First Name">
+                    <label>username</label>
+                    <input type="text" placeholder="username">
+                    <label>email</label>
+                    <input type="text" placeholder="email">
+                    <label>password</label>
+                    <input type="text" placeholder="password">
                 </form>
             </div>
         </div>
