@@ -41,28 +41,32 @@ if (!$result) {
         </div>
        
     </nav>
-
-
     <div class="banner">
-
-        <div class="banner-text">
-            <h2>HAIKYU!! The Dumpster Battle</h2>
-            <p>Animation, Comedy, Drama</p>
-            <p>lorem100
-
-            </p>
-            <a href="#">GET TICKET</a>
-
-            <a href="#">View Det</a>
-
-
+        <div class="slides">
+            <!-- <div class="slide" style="background-image: url('pt1.jpg');">
+                <div class="banner-info">
+                    <h1>Harry Potter and the Philosopher's Stone</h1>
+                    <p>แฟนตาซี · Natalie Portman และ Moses Ingram ประชันบทบาทเข้มข้นในผลงานฟิล์มนัวร์สุดระทึก</p>
+                    <button>สตรีมเลย</button>
+                </div>
+            </div> -->
+            <div class="slide" style="background-image: url('banner.jpg');">
+                <div class="banner-info">
+                    <h1>ANOTHER MOVIE</h1>
+                    <p>เรื่องราวที่น่าติดตามของภาพยนตร์ใหม่ที่ทุกคนรอคอย</p>
+                    <button>สตรีมเลย</button>
+                </div>
+            </div>
+            <!-- เพิ่มสไลด์อื่นๆ ตามต้องการ -->
         </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <script src="script.js"></script>
     </div>
 
 
     <div class="container">
-
-
 
         <?php
         //ตรวจสอบว่ามีข้อมูลหรือไม่
