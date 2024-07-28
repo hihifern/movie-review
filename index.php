@@ -35,21 +35,39 @@ if (!$result) {
                 <li><a href="#">Contact</a></li>
             </ul>
 
-             <div class="user">
-            <a href="register.php"><img src="img/aa/icons8-user-30.png" alt=""> Login/Sign up</a>
+            <div class="user">
+                <a href="#" id="loginBtn"><img src="img/aa/icons8-user-30.png"> Login/Sign up</a>
+                <!-- <button id="loginBtn">Login</button> -->
+            </div>
+            <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form action="login.php" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+            <script src="login.js"></script>
         </div>
         </div>
-       
+
     </nav>
     <div class="banner">
         <div class="slides">
-            <!-- <div class="slide" style="background-image: url('pt1.jpg');">
+            <div class="slide" style="background-image: url('img/chihiro042.jpg');">
                 <div class="banner-info">
-                    <h1>Harry Potter and the Philosopher's Stone</h1>
+                    <h1>Spirited Away</h1>
                     <p>แฟนตาซี · Natalie Portman และ Moses Ingram ประชันบทบาทเข้มข้นในผลงานฟิล์มนัวร์สุดระทึก</p>
                     <button>สตรีมเลย</button>
                 </div>
-            </div> -->
+            </div>
             <div class="slide" style="background-image: url('banner.jpg');">
                 <div class="banner-info">
                     <h1>ANOTHER MOVIE</h1>
@@ -111,22 +129,10 @@ if (!$result) {
         ?>
     </div>
 
-    <div class="overlay" id="divOne">
-        <div class="wrapper">
-            <h2>Register</h2>
-            <a href="#" class="close">&times;</a>
-            <div class="content">
-                <form>
-                    <label>username</label>
-                    <input type="text" placeholder="username">
-                    <label>email</label>
-                    <input type="text" placeholder="email">
-                    <label>password</label>
-                    <input type="text" placeholder="password">
-                </form>
-            </div>
-        </div>
-    </div>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
