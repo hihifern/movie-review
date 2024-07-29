@@ -1,16 +1,3 @@
-<?php
-include("connect.php"); // รวมไฟล์สำหรับเชื่อมต่อฐานข้อมูล
-
-$sql = 'SELECT * FROM movie';
-$result = $mysqli->query($sql);
-
-// ตรวจสอบผลลัพธ์จากการ query
-if (!$result) {
-    die("Query failed: " . $mysqli->error);
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,10 +5,17 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/reviews.css">
+    <link rel="stylesheet" href="css/movie.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/login.css">
+
+    <style>
+        body {
+            background-color: rgb(50, 62, 131);
+        }
+    </style>
 </head>
+
 
 <body>
     <nav>
@@ -76,6 +70,25 @@ if (!$result) {
 
     </nav>
 
+
+    <div class="banner">
+        <div class="slides">
+            <div class="slide" style="background-image: url('img/suzume.jpg');">
+                <div class="banner-info">
+                    <h1>Spirited Away</h1>
+                    <p>แฟนตาซี </p>
+                    <button>สตรีมเลย</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        hello
+    </div>
+
 </body>
+
 
 </html>

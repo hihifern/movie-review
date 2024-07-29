@@ -35,8 +35,19 @@ body::-webkit-scrollbar {
     box-sizing: border-box;
 }
 
+.banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    /* ปรับความสูงของการจางได้ตามต้องการ */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 100%);
+}
+
 .banner-info {
-    max-width: 600px;
+    max-width: 800px;
     background: rgba(0, 0, 0, 0.5);
     padding: 20px;
     margin-right: 5rem;
@@ -47,9 +58,22 @@ body::-webkit-scrollbar {
     margin-bottom: 10px;
 }
 
-.banner-info p {
+.banner-type {
+    width: 400px;
     font-size: 18px;
-    margin-bottom: 20px;
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.banner-type p{
+    border: 2px solid rgb(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 12px;
+    color: #fff;
+    padding: 10px 25px;
+    text-align: center;
+    margin-right: 2rem;
 }
 
 .banner-info button {
@@ -82,23 +106,38 @@ button.next {
 }
 
 .container {
-    max-width: 1140px;
+    max-width: 1400px;
     overflow: hidden;
     margin-left: auto;
     margin-right: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 2rem;
-    justify-items: center;
+  
+    
+}
 
+.TOP{
+    font-size: 30px;
+    color: #fff;
+}
+
+hr{
+    margin-top: 1rem;
+}
+
+.list{
+ display: grid;
+    grid-template-columns: repeat(6,1fr);
+    /* column-gap: 1rem;
+    row-gap: 1rem;    */
 }
 
 .movie-list {
-
+    
     justify-items: center;
-    background-color: #fff;
+    padding: 2rem 0;
+    justify-items: center;
+    background-color: #000000;
     box-shadow: 0 1px 5px -1px rgba(0, 0, 0, .1);
-    padding: 2rem;
+    /* padding: 2rem; */
 }
 
 .movie-name img {
@@ -108,142 +147,11 @@ button.next {
 
 .movie-info {
     padding: 2rem 0;
+    color: #fff;
 }
 
 
 button {
     padding: 10px 20px;
     font-size: 16px;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: opacity 0.3s ease;
-}
-
-.frombox-login {
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-
-    width: 400px;
-    /* background-color: #41436A; */
-    background: transparent;
-    backdrop-filter: blur(20px);
-    border-radius: 10px;
-    text-align: center;
-}
-
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.frombox-login h2 {
-    font-size: 36px;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-.frombox-login button {
-    background-color: #ffffff;
-    color: #333;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    width: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    font-size: 16px;
-    font-weight: bolder;
-    cursor: pointer;
-}
-
-.frombox-login button:hover{
-    background-color: aquamarine;
-}
-
-.frombox-login .input-box {
-    width: 100%;
-    height: 50px;
-    margin: 30px 0;
-}
-
-.input-box input {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid rgb(255, 255, 255, 0.2);
-    border-radius: 40px;
-    font-size: 16px;
-    color: #fff;
-    padding: 20px 45px 20px 20px;
-}
-
-.input-box input::placeholder {
-    color: #fff;
-}
-
-.input-box .bx {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    pointer-events: none;
-}
-
-.modal-content .remember-forgot {
-    display: flex;
-    justify-content: space-between;
-    margin: -15px 0 15px;
-}
-
-.remember-forgot label input {
-    accent-color: #fff;
-    margin-right: 3px;
-}
-
-.remember-forgot a{
-    color: #fff;
-    text-decoration: none;
-}
-
-.remember-forgot a:hover{
-    text-decoration: underline;
-}
-
-.modal-content .register-link {
-    font-size: 14px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.register-link p a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-
-}
-
-.register-link p a:hover {
-    text-decoration: underline;
 }
