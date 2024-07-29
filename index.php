@@ -130,49 +130,118 @@ if (!$result) {
             <hr>
         </div>
         <div class="list">
-        <?php
-        //ตรวจสอบว่ามีข้อมูลหรือไม่
-        if ($result->num_rows > 0) {
-            // วนลูปเพื่อแสดงผลข้อมูล
-            while ($p = $result->fetch_object()) {
-                // ตรวจสอบคุณสมบัติ
-                if (isset($p->movie_name)) {
-                    $n = $p->movie_name;
-                    $images = explode(',', $p->img);
-                    $src = "img/$p->id/{$images[0]}";
-                    $type = $p->type;
-                    $rate = $p->rate;
-                    $synopsis = $p->synopsis;
-                    $det = $p->details_link;
+            <?php
 
 
+            //ตรวจสอบว่ามีข้อมูลหรือไม่
+            if ($result->num_rows > 0) {
+                // วนลูปเพื่อแสดงผลข้อมูล
+                while ($p = $result->fetch_object()) {
+                    // ตรวจสอบคุณสมบัติ
+                    if (isset($p->movie_name)) {
+                        $n = $p->movie_name;
+                        $images = explode(',', $p->img);
+                        $src = "img/$p->id/{$images[0]}";
+                        $type = $p->type;
+                        $rate = $p->rate;
+                        $synopsis = $p->synopsis;
+                        $det = $p->details_link;
 
-                 
-                    echo "<div class='movie-list'>";
-                    echo "<div class='movie-name'>";
-                    echo "<img src='$src' alt='$n'>";
-                    echo "</div>";
 
-                    echo "<div class='movie-info'>";
-                    echo "<h3>$n</h3>";
+                        // while ($p = $result->fetch_object()) {
+                        //     $moviesByType[$p->type][] = [
+                        //         'id' => $p->id,
+                        //         'name' => $p->movie_name,
+                        //         'img' => $p->img,
+                        //         'rate' => $p->rate,
+                        //         'synopsis' => $p->synopsis,
+                        //         'details_link' => $p->details_link
+                        //     ];
+                        // }
 
-                    echo "<div class='btt'>";
-                    echo "<a href='$det'>View Details</a>";
-                    echo "</div>";
-                    echo "</div>";
+                        echo "<div class='movie-list'>";
+                        echo "<div class='movie-name'>";
+                        echo "<img src='$src' alt='$n'>";
+                        echo "</div>";
 
-                    echo "</div>";
-                   
-                } else {
-                    echo "<p>Movie name not found: $p->id</p>";
+                        echo "<div class='movie-info'>";
+                        echo "<h3>$n</h3>";
+
+                        echo "<div class='btt'>";
+                        echo "<a href='$det'>View Details</a>";
+                        echo "</div>";
+                        echo "</div>";
+
+                        echo "</div>";
+                    } else {
+                        echo "<p>Movie name not found: $p->id</p>";
+                    }
                 }
+            } else {
+                echo "<p>No movies found in the database.</p>";
             }
-        } else {
-            echo "<p>No movies found in the database.</p>";
-        }
-        ?>
-    </div>
-    </div>
+            ?>
+
+
+            <!-- แสดงหนังตามtype -->
+            <div class="list">
+                <?php
+
+                $moviesByType = [];
+                // แสดงหนังที่จัดหมวดหมู่เป็น anime
+                if (isset($moviesByType['anime'])) {
+                    echo "<h2>Anime</h2>";
+                    echo "<div class='movie-category'>";
+
+                    foreach ($moviesByType['anime'] as $movie) {
+                        $images = explode(',', $movie['img']);
+                        $src = "img/{$movie['id']}/{$images[0]}";
+                        echo "<div class='movie-list'>";
+                        echo "<div class='movie-name'>";
+                        echo "<img src='$src' alt='{$movie['name']}'>";
+                        echo "</div>";
+
+                        echo "<div class='movie-info'>";
+                        echo "<h3>{$movie['name']}</h3>";
+                        echo "<div class='btt'>";
+                        echo "<a href='{$movie['details_link']}'>View Details</a>";
+                        echo "</div>";
+                        echo "</div>";
+
+                        echo "</div>";
+                    }
+                    echo "</div>";
+                }
+
+                // แสดงหนังที่จัดหมวดหมู่อื่น ๆ
+                foreach ($moviesByType as $type => $movies) {
+                    if ($type != 'anime') {
+                        echo "<h2>Category: $type</h2>";
+                        echo "<div class='movie-category'>";
+
+                        foreach ($movies as $movie) {
+                            $images = explode(',', $movie['img']);
+                            $src = "img/{$movie['id']}/{$images[0]}";
+                            echo "<div class='movie-list'>";
+                            echo "<div class='movie-name'>";
+                            echo "<img src='$src' alt='{$movie['name']}'>";
+                            echo "</div>";
+
+                            echo "<div class='movie-info'>";
+                            echo "<h3>{$movie['name']}</h3>";
+                            echo "<div class='btt'>";
+                            echo "<a href='{$movie['details_link']}'>View Details</a>";
+                            echo "</div>";
+                            echo "</div>";
+
+                            echo "</div>";
+                        }
+                        echo "</div>";
+                    }
+                }
+                ?>
+            </div>
+        </div>
 
 
 
