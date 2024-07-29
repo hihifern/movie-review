@@ -9,57 +9,9 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-nav {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    background-color: #fff;
-    color: #333;
-    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
-}
-
-
-.logo h1 {
-    background-color: #fff;
-}
-
-
-.menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-}
-
-.menu li {
-    margin: 0 2rem;
-}
-
-.menu a {
-    color: #989292;
-    text-decoration: none;
-}
-
-.user img {
-    width: 30px;
-
-}
-
-.user a {
-    text-decoration: none;
-    margin-top: 10rem;
-}
-
 .banner {
     position: relative;
-    height: 900px;
+    height: 800px;
     width: 1920px;
     overflow: hidden;
     background-color: #000;
@@ -72,7 +24,7 @@ nav {
 
 .slide {
     min-width: 100%;
-    height: 100vh;
+    height: 800px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -130,7 +82,7 @@ button.next {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1140px;
     overflow: hidden;
     margin-left: auto;
     margin-right: auto;
@@ -173,23 +125,25 @@ button {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
     transition: opacity 0.3s ease;
 }
 
-.modal-content {
-    background-color: #fefefe;
+.frombox-login {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
-    max-width: 400px;
-    position: relative;
+
+    width: 400px;
+    /* background-color: #41436A; */
+    background: transparent;
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    text-align: center;
 }
 
 .close {
-    color: #aaa;
+    color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -202,6 +156,94 @@ button {
     cursor: pointer;
 }
 
-h2 {
-    margin-top: 0;
+.frombox-login h2 {
+    font-size: 36px;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.frombox-login button {
+    background-color: #ffffff;
+    color: #333;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.frombox-login button:hover{
+    background-color: aquamarine;
+}
+
+.frombox-login .input-box {
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgb(255, 255, 255, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box .bx {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.modal-content .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.modal-content .register-link {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
 }

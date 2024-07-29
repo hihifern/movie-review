@@ -19,6 +19,8 @@ if (!$result) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Reviews</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -40,21 +42,35 @@ if (!$result) {
                 <!-- <button id="loginBtn">Login</button> -->
             </div>
             <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Login</h2>
-            <form action="login.php" method="post">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required><br><br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required><br><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </div>
+                <div class="frombox-login">
+                    <span class="close">&times;</span>
+                    <h2>Login</h2>
+                    <form action="process_login.php" method="post">
+                        <div class="input-box">
+                            <input type="text" name="username" placeholder="uesrname" required>
+                            <!-- <i class='bx bx-user'></i> -->
+                        </div>
+                        <div class="input-box">
+                            <input type="password" name="password" placeholder="password" required>
+                            <!-- <i class='bx bx-lock-alt' ></i> -->
+                        </div>
+
+                        <div class="remember-forgot">
+                            <label><input type="checkbox">Remember Me</label>
+                            <a href="#">Forgot password?</a>
+                        </div>
+                        <button type="submit">Login</button>
+                        <div class="register-link">
+                            <p>Don't have an account?
+                                <a href="#"> Register</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
 
-            <script src="login.js"></script>
+            <script src="js/login.js"></script>
         </div>
         </div>
 
@@ -64,23 +80,30 @@ if (!$result) {
             <div class="slide" style="background-image: url('img/chihiro042.jpg');">
                 <div class="banner-info">
                     <h1>Spirited Away</h1>
-                    <p>แฟนตาซี · Natalie Portman และ Moses Ingram ประชันบทบาทเข้มข้นในผลงานฟิล์มนัวร์สุดระทึก</p>
+                    <p>แฟนตาซี </p>
                     <button>สตรีมเลย</button>
                 </div>
             </div>
-            <div class="slide" style="background-image: url('banner.jpg');">
+            <div class="slide" style="background-image: url('img/totoro029.jpg');">
                 <div class="banner-info">
-                    <h1>ANOTHER MOVIE</h1>
+                    <h1>My Neighbor Totoro</h1>
                     <p>เรื่องราวที่น่าติดตามของภาพยนตร์ใหม่ที่ทุกคนรอคอย</p>
                     <button>สตรีมเลย</button>
                 </div>
             </div>
-            <!-- เพิ่มสไลด์อื่นๆ ตามต้องการ -->
+            <div class="slide" style="background-image: url('img/ponyo008.jpg');">
+                <div class="banner-info">
+                    <h1>My Neighbor Totoro</h1>
+                    <p>เรื่องราวที่น่าติดตามของภาพยนตร์ใหม่ที่ทุกคนรอคอย</p>
+                    <button>สตรีมเลย</button>
+                </div>
+            </div>
+            <!-- เพิ่มสไลด์ -->
         </div>
         <button class="prev" onclick="prevSlide()">&#10094;</button>
         <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
     </div>
 
 
@@ -131,8 +154,6 @@ if (!$result) {
 
 
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
