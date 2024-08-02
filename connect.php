@@ -1,7 +1,9 @@
 <?php
-$mysqli = new mysqli('localhost', 'root', '', 'movie-review');
+// $mysqli = new mysqli('localhost', 'root', '', 'movie-review');
+$conn = mysqli_connect('localhost', 'root', '', 'movie-review');
 
-if ($mysqli->connect_error) {
+
+if ($conn->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 ?>

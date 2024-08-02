@@ -1,10 +1,8 @@
 <?php
-include("connect.php"); // รวมไฟล์สำหรับเชื่อมต่อฐานข้อมูล
-
+include("connect.php");
 $sql = 'SELECT * FROM movie';
-$result = $mysqli->query($sql);
+$result = mysqli_query($conn, $sql);
 
-// ตรวจสอบผลลัพธ์จากการ query
 if (!$result) {
     die("Query failed: " . $mysqli->error);
 }
@@ -125,7 +123,7 @@ if (!$result) {
 
 
     <div class="container">
-        <div class='TOP'>
+        <div class='topic'>
             <h3>TOP 10</h3>
             <hr>
         </div>
@@ -182,66 +180,54 @@ if (!$result) {
             }
             ?>
 
-
-            <!-- แสดงหนังตามtype -->
-            <div class="list">
-                <?php
-
-                $moviesByType = [];
-                // แสดงหนังที่จัดหมวดหมู่เป็น anime
-                if (isset($moviesByType['anime'])) {
-                    echo "<h2>Anime</h2>";
-                    echo "<div class='movie-category'>";
-
-                    foreach ($moviesByType['anime'] as $movie) {
-                        $images = explode(',', $movie['img']);
-                        $src = "img/{$movie['id']}/{$images[0]}";
-                        echo "<div class='movie-list'>";
-                        echo "<div class='movie-name'>";
-                        echo "<img src='$src' alt='{$movie['name']}'>";
-                        echo "</div>";
-
-                        echo "<div class='movie-info'>";
-                        echo "<h3>{$movie['name']}</h3>";
-                        echo "<div class='btt'>";
-                        echo "<a href='{$movie['details_link']}'>View Details</a>";
-                        echo "</div>";
-                        echo "</div>";
-
-                        echo "</div>";
-                    }
-                    echo "</div>";
-                }
-
-                // แสดงหนังที่จัดหมวดหมู่อื่น ๆ
-                foreach ($moviesByType as $type => $movies) {
-                    if ($type != 'anime') {
-                        echo "<h2>Category: $type</h2>";
-                        echo "<div class='movie-category'>";
-
-                        foreach ($movies as $movie) {
-                            $images = explode(',', $movie['img']);
-                            $src = "img/{$movie['id']}/{$images[0]}";
-                            echo "<div class='movie-list'>";
-                            echo "<div class='movie-name'>";
-                            echo "<img src='$src' alt='{$movie['name']}'>";
-                            echo "</div>";
-
-                            echo "<div class='movie-info'>";
-                            echo "<h3>{$movie['name']}</h3>";
-                            echo "<div class='btt'>";
-                            echo "<a href='{$movie['details_link']}'>View Details</a>";
-                            echo "</div>";
-                            echo "</div>";
-
-                            echo "</div>";
-                        }
-                        echo "</div>";
-                    }
-                }
-                ?>
-            </div>
         </div>
+        <!-- แสดงหนังตามtype -->
+        <div class='topic'>
+            <h3>ANIME</h3>
+            <hr>
+        </div>
+        <div class="list-type">
+
+            <?php
+
+            $movies = "SELECT * FROM `movie` WHERE `type` IN ('anime')";
+            $query_movies = mysqli_query($conn, $movies);
+            $result_movies = mysqli_fetch_assoc($query_movies);
+
+            while ($result_movies = mysqli_fetch_assoc($query_movies)) {
+
+                $title = $result_movies['movie_name'];
+                $image_id = $result_movies['id']; // ID ของรูปภาพ
+                $image_filename = $result_movies['img']; // ชื่อไฟล์ของรูปภาพ
+                $src_img = "img/$image_id/$image_filename";
+
+                echo "<div class='movie-list'>";
+                echo "<div class='movie-name'>";
+ 
+                echo "<h2>$title</h2>";
+                echo "<img src='$src_img' alt='$title' style='max-width: 200px; height: auto;'><br>";
+ echo "<div class='movie-info'>";
+              
+                // echo $result_movies['img'];
+                echo "</div>";
+
+                echo "</div>";
+
+              
+                // echo $result_movies['movie_name'];
+
+                // echo "<div class='btt'>";
+                // echo "<a href='$det'>View Details</a>";
+                // echo "</div>";
+                echo "</div>";
+
+                // echo $result_movies['type'];
+            }
+
+            ?>
+
+        </div>
+    </div>
 
 
 
