@@ -127,9 +127,9 @@ button.next {
 
 .list{
  display: grid;
-    grid-template-columns: repeat(6,1fr);
-    /* column-gap: 1rem;
-    row-gap: 1rem;    */
+    grid-template-columns: repeat(5,1fr);
+    transition: transform 0.5s ease-in-out;
+    column-gap: 5px;
 }
 
 .movie-topic{
@@ -139,6 +139,7 @@ button.next {
 .movie-list {
     
     justify-items: center;
+    align-items: center;
     padding: 2rem 0;
     justify-items: center;
     background: transparent;
@@ -162,12 +163,32 @@ button {
     font-size: 16px;
 }
 
-
 .slide-movie{
+    width: 300px;
     align-items: center;
     justify-content: flex-end;
     background-size: cover;
     background-position: center;
     color: #fff;
     box-sizing: border-box;
+}
+
+button.prev-two,
+button.next-two {
+    position: absolute;
+ top: 115%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button.prev-two {
+    left: 10rem;
+}
+
+button.next-two {
+    right: 10rem;
 }
