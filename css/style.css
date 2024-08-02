@@ -6,6 +6,7 @@
     color: #fff;
 }
 
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -131,12 +132,16 @@ button.next {
     row-gap: 1rem;    */
 }
 
+.movie-topic{
+    padding: 2rem 0;
+}
+
 .movie-list {
     
     justify-items: center;
     padding: 2rem 0;
     justify-items: center;
-    background-color: #000000;
+    background: transparent;
     box-shadow: 0 1px 5px -1px rgba(0, 0, 0, .1);
     /* padding: 2rem; */
 }
@@ -155,4 +160,14 @@ button.next {
 button {
     padding: 10px 20px;
     font-size: 16px;
+}
+
+
+.slide-movie{
+    align-items: center;
+    justify-content: flex-end;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    box-sizing: border-box;
 }

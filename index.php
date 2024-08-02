@@ -22,8 +22,8 @@ if (!$result) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         body {
-            background-color: rgb(50, 62, 131);
-            background-color: #000;
+
+            background-color: #333;
         }
     </style>
 
@@ -123,109 +123,116 @@ if (!$result) {
 
 
     <div class="container">
-        <div class='topic'>
-            <h3>TOP 10</h3>
-            <hr>
-        </div>
-        <div class="list">
-            <?php
+        <div class="movie-topic">
+            <div class='topic'>
+                <h3>TOP 10</h3>
+                <hr>
+            </div>
+            <div class="list">
+                <div class='slides'>
+                    <?php
 
 
-            //ตรวจสอบว่ามีข้อมูลหรือไม่
-            if ($result->num_rows > 0) {
-                // วนลูปเพื่อแสดงผลข้อมูล
-                while ($p = $result->fetch_object()) {
-                    // ตรวจสอบคุณสมบัติ
-                    if (isset($p->movie_name)) {
-                        $n = $p->movie_name;
-                        $images = explode(',', $p->img);
-                        $src = "img/$p->id/{$images[0]}";
-                        $type = $p->type;
-                        $rate = $p->rate;
-                        $synopsis = $p->synopsis;
-                        $det = $p->details_link;
+                    //ตรวจสอบว่ามีข้อมูลหรือไม่
+                    if ($result->num_rows > 0) {
+                        // วนลูปเพื่อแสดงผลข้อมูล
+                        while ($p = $result->fetch_object()) {
+                            // ตรวจสอบคุณสมบัติ
+                            if (isset($p->movie_name)) {
+                                $n = $p->movie_name;
+                                $images = explode(',', $p->img);
+                                $src = "img/$p->id/{$images[0]}";
+                                $type = $p->type;
+                                $rate = $p->rate;
+                                $synopsis = $p->synopsis;
+                                $det = $p->details_link;
 
 
-                        // while ($p = $result->fetch_object()) {
-                        //     $moviesByType[$p->type][] = [
-                        //         'id' => $p->id,
-                        //         'name' => $p->movie_name,
-                        //         'img' => $p->img,
-                        //         'rate' => $p->rate,
-                        //         'synopsis' => $p->synopsis,
-                        //         'details_link' => $p->details_link
-                        //     ];
-                        // }
 
-                        echo "<div class='movie-list'>";
-                        echo "<div class='movie-name'>";
-                        echo "<img src='$src' alt='$n'>";
-                        echo "</div>";
+                                echo "<div class='slide-movie'>";
+                                echo "<div class='movie-list'>";
+                                echo "<div class='movie-name'>";
+                                echo "<img src='$src' alt='$n'>";
+                                echo "</div>";
 
-                        echo "<div class='movie-info'>";
-                        echo "<h3>$n</h3>";
+                                echo "<div class='movie-info'>";
+                                echo "<h3>$n</h3>";
 
-                        echo "<div class='btt'>";
-                        echo "<a href='$det'>View Details</a>";
-                        echo "</div>";
-                        echo "</div>";
+                                echo "<div class='btt'>";
+                                echo "<a href='$det'>View Details</a>";
+                                echo "</div>";
+                                echo "</div>";
 
-                        echo "</div>";
+                                echo "</div>";
+                                echo "</div>";
+                            } else {
+                                echo "<p>Movie name not found</p>";
+                            }
+                        }
                     } else {
-                        echo "<p>Movie name not found: $p->id</p>";
+                        echo "<p>No movies found in the database.</p>";
                     }
-                }
-            } else {
-                echo "<p>No movies found in the database.</p>";
-            }
-            ?>
-
+                    ?>
+                    <script src="js/movie-script.js"></script>
+                </div>
+            </div>
         </div>
         <!-- แสดงหนังตามtype -->
-        <div class='topic'>
-            <h3>ANIME</h3>
-            <hr>
-        </div>
-        <div class="list-type">
+        <div class="movie-topic">
+            <div class='topic'>
+                <h3>ANIME</h3>
+                <hr>
+            </div>
+            <div class="list">
 
-            <?php
+                <?php
 
-            $movies = "SELECT * FROM `movie` WHERE `type` IN ('anime')";
-            $query_movies = mysqli_query($conn, $movies);
-            $result_movies = mysqli_fetch_assoc($query_movies);
+                $movies = "SELECT * FROM `movie` WHERE `type` IN ('Anime') ORDER BY `id`";
+                $query_movies = mysqli_query($conn, $movies);
 
-            while ($result_movies = mysqli_fetch_assoc($query_movies)) {
+                // ตรวจสอบคำสั่ง SQL
+                // if (!$query_movies) {
+                //     die("Query failed: " . mysqli_error($conn));
+                // }
+                // แสดงข้อมูลทั้งหมด
+                // echo "<pre>";
+                // while ($result_movies = mysqli_fetch_assoc($query_movies)) {
+                //     print_r($result_movies);
+                // }
+                // echo "</pre>";
 
-                $title = $result_movies['movie_name'];
-                $image_id = $result_movies['id']; // ID ของรูปภาพ
-                $image_filename = $result_movies['img']; // ชื่อไฟล์ของรูปภาพ
-                $src_img = "img/$image_id/$image_filename";
+                while ($result_movies = mysqli_fetch_assoc($query_movies)) {
 
-                echo "<div class='movie-list'>";
-                echo "<div class='movie-name'>";
- 
-                echo "<h2>$title</h2>";
-                echo "<img src='$src_img' alt='$title' style='max-width: 200px; height: auto;'><br>";
- echo "<div class='movie-info'>";
-              
-                // echo $result_movies['img'];
-                echo "</div>";
+                    $title = $result_movies['movie_name'];
+                    $image_id = $result_movies['id']; // ID ของรูปภาพ
+                    $image_filename = $result_movies['img']; // ชื่อไฟล์ของรูปภาพ
+                    $src_img = "img/$image_id/$image_filename";
+                    $movie_link = $result_movies['details_link'];
 
-                echo "</div>";
+                    echo "<div class='slide-movie'>";
+                    echo "<div class='movie-list'>";
 
-              
-                // echo $result_movies['movie_name'];
+                            echo "<div class='movie-name'>";
+                            echo "<img src='$src_img' alt='$title'><br>";
+                            echo "</div>";
 
-                // echo "<div class='btt'>";
-                // echo "<a href='$det'>View Details</a>";
-                // echo "</div>";
-                echo "</div>";
+                    echo "<div class='movie-info'>";
+                    echo "<h2>$title</h2>";
 
-                // echo $result_movies['type'];
-            }
+                    echo "<div class='btt'>";
+                    echo "<a href='$movie_link'>View Details</a>";
+                    echo "</div>";
+                    echo "</div>";
 
-            ?>
+                    echo "</div>";
+                    echo "</div>";
 
+
+                }
+
+                ?>
+
+            </div>
         </div>
     </div>
 
