@@ -30,11 +30,8 @@
                     echo "</div>";
 
                     echo "<div class='movie-info'>";
-                    echo "<h2>$title</h2>";
-
-                    echo "<div class='btt'>";
-                    echo "<a href='$movie_link'>View Details</a>";
-                    echo "</div>";
+                    echo "<a href='$movie_link'>$title</a>";
+               
                     echo "</div>";
 
                     echo "</div>";

@@ -21,10 +21,7 @@ if (!$result) {
     <link rel="stylesheet" href="css/login.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
-        body {
 
-            background-color: #333;
-        }
     </style>
 
 </head>
@@ -78,6 +75,7 @@ if (!$result) {
         </div>
 
     </nav>
+
     <div class="banner">
         <div class="slides">
             <div class="slide" style="background-image: url('img/spider02.jpg');">
@@ -115,12 +113,8 @@ if (!$result) {
             </div>
             <!-- เพิ่มสไลด์ -->
         </div>
-        <button class="prev" onclick="prevSlide()">&#10094;</button>
-        <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
-    <!-- <script src="js/script.js"></script> -->
-    </div>
-
+    <script src="js/script.js"></script>
 
     <div class="container">
         <div class="movie-topic">
@@ -131,13 +125,9 @@ if (!$result) {
             <div class="list">
                 <div class='slides'>
                     <?php
-
-
-                    //ตรวจสอบว่ามีข้อมูลหรือไม่
                     if ($result->num_rows > 0) {
                         // วนลูปเพื่อแสดงผลข้อมูล
                         while ($p = $result->fetch_object()) {
-                            // ตรวจสอบคุณสมบัติ
                             if (isset($p->movie_name)) {
                                 $n = $p->movie_name;
                                 $images = explode(',', $p->img);
@@ -148,7 +138,6 @@ if (!$result) {
                                 $det = $p->details_link;
 
 
-
                                 echo "<div class='slide-movie'>";
                                 echo "<div class='movie-list'>";
                                 echo "<div class='movie-name'>";
@@ -156,11 +145,7 @@ if (!$result) {
                                 echo "</div>";
 
                                 echo "<div class='movie-info'>";
-                                echo "<h3>$n</h3>";
-
-                                echo "<div class='btt'>";
-                                echo "<a href='$det'>View Details</a>";
-                                echo "</div>";
+                                echo "<a href='$det'>$n</a>";
                                 echo "</div>";
 
                                 echo "</div>";
@@ -175,10 +160,12 @@ if (!$result) {
                     ?>
                 </div>
             </div>
-            <button class="prev-two" onclick="prevSlide()">&#10094;</button>
-            <button class="next-two" onclick="nextSlide()">&#10095;</button>
-            <script src="js/movielist.js"></script>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
         </div>
+        <script src="js/movielist.js"></script>
+
+
 
         <!-- แสดงหนังตามtype -->
         <div class="movie-topic">
@@ -187,11 +174,9 @@ if (!$result) {
                 <hr>
             </div>
             <div class="list">
+
                 <?php include 'movie-type/movie-type.php'; ?>
 
-                <button class="prev-two" onclick="prevSlide()">&#10094;</button>
-                <button class="next-two" onclick="nextSlide()">&#10095;</button>
-                <script src="js/movielist.js"></script>
             </div>
         </div>
 
@@ -202,15 +187,11 @@ if (!$result) {
                 <hr>
             </div>
             <div class="list-GB">
-            <?php include 'movie-type/GB-type.php'; ?>
-                
-                <button class="prev-two" onclick="prevSlide()">&#10094;</button>
-                <button class="next-two" onclick="nextSlide()">&#10095;</button>
-                <script src="js/movielist.js"></script>
+                <?php include 'movie-type/GB-type.php'; ?>
+
             </div>
         </div>
     </div>
-
 
 
 

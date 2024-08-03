@@ -6,6 +6,16 @@
     color: #fff;
 }
 
+/* @media screen and (max-width: 800px){
+    .container{
+
+    }
+} */
+
+body {
+
+    background-color: #000000;
+}
 
 body::-webkit-scrollbar {
     display: none;
@@ -21,7 +31,7 @@ body::-webkit-scrollbar {
 
 .slides {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease;
 }
 
 .slide {
@@ -35,6 +45,7 @@ body::-webkit-scrollbar {
     color: #fff;
     padding: 20px;
     box-sizing: border-box;
+    transition: transform 0.5s ease;
 }
 
 .banner::after {
@@ -44,7 +55,6 @@ body::-webkit-scrollbar {
     left: 0;
     right: 0;
     height: 50%;
-    /* ปรับความสูงของการจางได้ตามต้องการ */
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 100%);
 }
 
@@ -90,7 +100,7 @@ body::-webkit-scrollbar {
 button.prev,
 button.next {
     position: absolute;
-    top: 50%;
+ top: 115%;
     transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
@@ -100,11 +110,11 @@ button.next {
 }
 
 button.prev {
-    left: 10px;
+    left: 10rem;
 }
 
 button.next {
-    right: 10px;
+    right: 10rem;
 }
 
 .container {
@@ -130,6 +140,12 @@ button.next {
     grid-template-columns: repeat(5,1fr);
     transition: transform 0.5s ease-in-out;
     column-gap: 5px;
+    justify-items: center;
+}
+
+.topic-slides{
+    display: flex;
+    transition: transform 0.5s ease;
 }
 
 .movie-topic{
@@ -137,14 +153,10 @@ button.next {
 }
 
 .movie-list {
-    
-    justify-items: center;
-    align-items: center;
     padding: 2rem 0;
-    justify-items: center;
     background: transparent;
     box-shadow: 0 1px 5px -1px rgba(0, 0, 0, .1);
-    /* padding: 2rem; */
+    padding-right: 3rem;
 }
 
 .movie-name img {
@@ -157,6 +169,16 @@ button.next {
     color: #fff;
 }
 
+.movie-info a{
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+.movie-info a:hover{
+    text-decoration: underline;
+}
 
 button {
     padding: 10px 20px;
@@ -164,7 +186,8 @@ button {
 }
 
 .slide-movie{
-    width: 300px;
+    max-width: 300px;
+    box-sizing: border-box;
     align-items: center;
     justify-content: flex-end;
     background-size: cover;
@@ -173,22 +196,7 @@ button {
     box-sizing: border-box;
 }
 
-button.prev-two,
-button.next-two {
-    position: absolute;
- top: 115%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
+.banner .slides {
+    animation: slideAnimation 20s infinite linear;
 }
 
-button.prev-two {
-    left: 10rem;
-}
-
-button.next-two {
-    right: 10rem;
-}

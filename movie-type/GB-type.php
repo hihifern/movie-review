@@ -30,11 +30,9 @@ while ($result_movies = mysqli_fetch_assoc($query_movies)) {
     echo "</div>";
 
     echo "<div class='movie-info'>";
-    echo "<h2>$title</h2>";
+    echo "<a href='$movie_link'>$title</a>";
 
-    echo "<div class='btt'>";
-    echo "<a href='$movie_link'>View Details</a>";
-    echo "</div>";
+
     echo "</div>";
 
     echo "</div>";
@@ -57,8 +55,7 @@ while ($result_movies = mysqli_fetch_assoc($query_movies)) {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             column-gap: 1rem;
-            align-items: center;
-            justify-content: center;
+        
         }
 .movie-name-GB{
     margin: 0 1rem;
