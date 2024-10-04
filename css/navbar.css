@@ -1,59 +1,125 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
+ * {
     margin: 0;
-    font-family: karla;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body::-webkit-scrollbar {
-    display: none;
+body {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+ 
 }
 
 nav {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    background-color: #41436A;
+    color: #fff;
+    padding: 1.5rem 2rem;
+}
+
+
+.navbar-side{
+    height: 100%;
+    width: 240px;
+    top: 0;
+    padding-top: 2rem;
+}
+
+.navbar-side .logo-content .logo {
+    color: #fff;
+    display: flex;
+    height: 3rem;
+    width: 10%;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar-side i {
+    font-size: 2rem;
+
+}
+
+.navbar-side #btn{
+    position: absolute;
+    color: #fff;
+    left: 80%;
+    top: 1.5rem;
+    font-size: 2rem;
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
+}
+
+.navbar-side ul{
+    margin-top: 1rem;
+}
+
+.navbar-side ul li{
+    position: relative;
+    height: 5rem;
     width: 100%;
-    z-index: 1000;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 9rem;
-    background-color: #333;
-    color: #fff;
-    box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
-}
-
-
-.logo h1 {
-    background-color: #333;
-}
-
-
-.menu {
-    display: flex;
-    align-items: center;
     list-style: none;
+    line-height: 3rem;
+    border-radius: 5rem;
 }
 
-.menu li {
-    margin: 0 2rem;
-}
-
-.menu a {
-    color: #989292;
-    text-decoration: none;
-}
-
-.user img {
-    width: 30px;
-
-}
-
-.user a {
-    text-decoration: none;
-    margin-top: 10rem;
+.navbar-side ul li a{
     color: #fff;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.navbar-side ul li a:hover{
+    color: #f85929;
+    background: #984063;
+}
+
+.navbar-side ul li a i{
+    height: 1rem;
+    min-width: 3rem;
+    border-radius: 2rem;
+    line-height: 1rem;
+}
+
+
+/* Top Navbar */
+.top-navbar {
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+}
+
+.top-navbar ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.top-navbar ul li {
+    margin: 0 15px;
+}
+
+.top-navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.top-navbar ul li a:hover {
+    background-color: #555;
+    border-radius: 5px;
 }

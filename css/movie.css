@@ -30,7 +30,6 @@ body::-webkit-scrollbar {
     align-items: center;
     justify-content: flex-end;
     background-size: cover;
-    /* background-position: center; */
     color: #fff;
     padding: 20px;
     box-sizing: border-box;
@@ -43,7 +42,7 @@ body::-webkit-scrollbar {
     left: 0;
     right: 0;
     height: 50%;
-    /* ปรับความสูงของการจางได้ตามต้องการ */
+
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(50, 62, 131) 100%);
 }
 
@@ -73,15 +72,6 @@ body::-webkit-scrollbar {
     cursor: pointer;
 }
 
-.container {
-    height: 3000px;
-    overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 2rem;
-    row-gap: 2rem;
-    justify-items: center;
-    padding: 2rem 0;
-}
+
+
+

@@ -27,21 +27,22 @@ if (!$result) {
 </head>
 
 <body>
-    <nav>
-        <div class="navbar">
-            <div class="logo">
-                <h1>Movie</h1>
-            </div>
+    <header>
+        <nav class="top-navbar">
 
-            <ul class="menu">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="reviews.php">Reviews</a></li>
-                <li><a href="#">Top Movies</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+            <li>
+                <a href="#">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="search">
+                </a>
+                <!-- <span class="tooltip">hello</span> -->
+            </li>
+
 
             <div class="user">
-                <a href="#" id="loginBtn"><img src="img/aa/icons8-user-30.png"> Login/Sign up</a>
+                <a href="#" id="loginBtn">
+                    <i class='bx bxs-user'> Login/Sign up</i>
+                </a>
                 <!-- <button id="loginBtn">Login</button> -->
             </div>
             <div id="loginModal" class="modal">
@@ -68,15 +69,60 @@ if (!$result) {
                     </form>
                 </div>
             </div>
-
-
             <script src="js/login.js"></script>
+        </nav>
+    </header>
+
+
+
+    </div>
+
+    <nav class="navbar-side">
+        <div class="logo-content">
+            <div class="logo">MOVIE4ME </div>
         </div>
-        </div>
+
+
+        <ul class="menu">
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="link-name">User</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-calendar-week'></i>
+                    <span class="link-name">Vote</span>
+                </a>
+
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-movie-play'></i>
+                    <span class="link-name">Movie List</span>
+                </a>
+
+            </li>
+
+
+            <li>
+                <a href="#">
+                    <i class='bx bx-list-plus'></i>
+                    <span class="linl-list">My List</span>
+
+                </a>
+            </li>
+
+        </ul>
 
     </nav>
 
-    <div class="banner">
+
+
+    <!-- <div class="banner">
         <div class="slides">
             <div class="slide" style="background-image: url('img/spider02.jpg');">
                 <div class="banner-info">
@@ -112,88 +158,89 @@ if (!$result) {
                 </div>
             </div>
             <!-- เพิ่มสไลด์ -->
-        </div>
     </div>
+    </div> 
     <script src="js/script.js"></script>
 
-    <div class="container">
-        <div class="movie-topic">
-            <div class='topic'>
-                <h3>TOP 10</h3>
-                <hr>
-            </div>
-            <div class="list">
-                <div class='slides'>
-                    <?php
-                    if ($result->num_rows > 0) {
-                        // วนลูปเพื่อแสดงผลข้อมูล
-                        while ($p = $result->fetch_object()) {
-                            if (isset($p->movie_name)) {
-                                $n = $p->movie_name;
-                                $images = explode(',', $p->img);
-                                $src = "img/$p->id/{$images[0]}";
-                                $type = $p->type;
-                                $rate = $p->rate;
-                                $synopsis = $p->synopsis;
-                                $det = $p->details_link;
+    <main>
+        <div class="container">
+            <div class="movie-topic">
+                <div class='topic'>
+                    <h3>TOP 10</h3>
+                    <hr>
+                </div>
+                <div class="list">
+                    
+                        <?php
+                        if ($result->num_rows > 0) {
+                            // วนลูปเพื่อแสดงผลข้อมูล
+                            while ($p = $result->fetch_object()) {
+                                if (isset($p->movie_name)) {
+                                    $n = $p->movie_name;
+                                    $images = explode(',', $p->img);
+                                    $src = "img/$p->id/{$images[0]}";
+                                    $type = $p->type;
+                                    $rate = $p->rate;
+                                    $synopsis = $p->synopsis;
+                                    $det = $p->details_link;
 
 
-                                echo "<div class='slide-movie'>";
-                                echo "<div class='movie-list'>";
-                                echo "<div class='movie-name'>";
-                                echo "<img src='$src' alt='$n'>";
-                                echo "</div>";
+                                    echo "<div class='slide-movie'>";
+                                    echo "<div class='movie-list'>";
+                                    echo "<div class='movie-name'>";
+                                    echo "<img src='$src' alt='$n'>";
+                                    echo "</div>";
 
-                                echo "<div class='movie-info'>";
-                                echo "<a href='$det'>$n</a>";
-                                echo "</div>";
+                                    echo "<div class='movie-info'>";
+                                    echo "<a href='$det'>$n</a>";
+                                    echo "</div>";
 
-                                echo "</div>";
-                                echo "</div>";
-                            } else {
-                                echo "<p>Movie name not found</p>";
+                                    echo "</div>";
+                                    echo "</div>";
+                                } else {
+                                    echo "<p>Movie name not found</p>";
+                                }
                             }
+                        } else {
+                            echo "<p>No movies found in the database.</p>";
                         }
-                    } else {
-                        echo "<p>No movies found in the database.</p>";
-                    }
-                    ?>
+                        ?>
+                 
+                </div>
+                <button class="prev" onclick="prevSlide()">&#10094;</button>
+                <button class="next" onclick="nextSlide()">&#10095;</button>
+            </div>
+            <script src="js/movielist.js"></script>
+
+
+
+            <!-- แสดงหนังตามtype -->
+            <!-- <div class="movie-topic">
+                <div class='topic'>
+                    <h3>ANIME</h3>
+                    <hr>
+                </div>
+                <div class="list">
+
+                    <?php include 'movie-type/movie-type.php'; ?>
+
                 </div>
             </div>
-            <button class="prev" onclick="prevSlide()">&#10094;</button>
-            <button class="next" onclick="nextSlide()">&#10095;</button>
-        </div>
-        <script src="js/movielist.js"></script>
 
 
+            <div class="movie-topic">
+                <div class='topic'>
+                    <h3>Studio Ghibli</h3>
+                    <hr>
+                </div>
+                <div class="list-GB">
+                    <?php include 'movie-type/GB-type.php'; ?>
 
-        <!-- แสดงหนังตามtype -->
-        <div class="movie-topic">
-            <div class='topic'>
-                <h3>ANIME</h3>
-                <hr>
+                </div>
             </div>
-            <div class="list">
+        </div> -->
 
-                <?php include 'movie-type/movie-type.php'; ?>
-
-            </div>
-        </div>
-
-
-        <div class="movie-topic">
-            <div class='topic'>
-                <h3>Studio Ghibli</h3>
-                <hr>
-            </div>
-            <div class="list-GB">
-                <?php include 'movie-type/GB-type.php'; ?>
-
-            </div>
-        </div>
-    </div>
-
-
+    </main>
 
 </body>
 
