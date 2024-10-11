@@ -1,6 +1,6 @@
 <?php
 
-                $movies = "SELECT * FROM `movie` WHERE `type` IN ('Anime') ORDER BY `id`";
+                $movies = "SELECT * FROM `movie` WHERE `type` IN ('Anime') ORDER BY `movie_id`";
                 $query_movies = mysqli_query($conn, $movies);
 
                 // ตรวจสอบคำสั่ง SQL
@@ -17,7 +17,7 @@
                 while ($result_movies = mysqli_fetch_assoc($query_movies)) {
 
                     $title = $result_movies['movie_name'];
-                    $image_id = $result_movies['id']; // ID ของรูปภาพ
+                    $image_id = $result_movies['movie_id']; // ID ของรูปภาพ
                     $image_filename = $result_movies['img']; // ชื่อไฟล์ของรูปภาพ
                     $src_img = "img/$image_id/$image_filename";
                     $movie_link = $result_movies['details_link'];
